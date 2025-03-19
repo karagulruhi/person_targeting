@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 
-model_path = "best.onnx" 
+model_path = "best_quantized.onnx" 
 model = ort.InferenceSession(model_path, providers=["CPUExecutionProvider"])
 stream_url = "http://192.168.2.49:4747/video"
 cap = cv2.VideoCapture(stream_url)
