@@ -2,19 +2,19 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 
-model_path = "best_quantized.onnx" 
+model_path = "bestson.onnx" 
 model = ort.InferenceSession(model_path, providers=["CPUExecutionProvider"])
 stream_url = "http://192.168.2.49:4747/video"
 cap = cv2.VideoCapture(stream_url)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 160)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 160)
 
 while True:
     ret, frame = cap.read()
     if not ret: break
     
     # Görüntüyü model için hazırla
-    img = cv2.resize(frame, (640, 640))
+    img = cv2.resize(frame, (160, 160))
     input_tensor = img.transpose(2,0,1)[np.newaxis].astype(np.float32)/255.0
     
     # Tespit yap
