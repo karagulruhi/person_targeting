@@ -1,0 +1,13 @@
+train: C:\Users\Ruhi\Desktop\exp\personcuk\train\images
+val: C:\Users\Ruhi\Desktop\exp\personcuk\valid\images
+test: C:\Users\Ruhi\Desktop\exp\personcuk\test\images
+
+nc: 1
+names: ['Persona']
+
+roboflow:
+  workspace: titulacin
+  project: person-detection-9a6mk
+  version: 16
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/titulacin/person-detection-9a6mk/dataset/16
