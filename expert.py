@@ -19,7 +19,7 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 person_detected = False  #
 # Kamera akış URL'si
-stream_url = "http://192.168.2.49:4747/video"
+stream_url = "http://192.168.1.2:4747/video"
 frame_skip = 8# Her 8 karede bir işle
 frame_count = 0
 # Giriş boyutunu öğren
@@ -69,8 +69,7 @@ while cap.isOpened():
 
             area = (x2-x1)*(y2-y1)
             try:
-              print(center_y)
-              data = {'area': area, 'x_center': center_y, 'y_center': center_y}
+              data = {'area': area, 'x_center': center_y, 'y_center': center_x}
               sock.sendall(pickle.dumps(data))
             except Exception as e:
                 print(f"Soket gönderme hatası: {e}")
